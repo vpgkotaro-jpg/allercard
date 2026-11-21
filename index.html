@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AllerCard — your food allergy, in any language</title>
+<meta name="description" content="Make a printable food allergy card in English, Japanese, Chinese and Korean. Works offline. Nothing leaves your device.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">AllerCard</a>
+    <nav><a href="#make">Make a card</a><a href="#kit">Emergency kit</a><a href="#why">Why</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>Say "I can't eat this" <span>in any language,</span> even when you can't speak.</h1>
+    <p class="lead">Pick your allergens, choose the language of the people around you, and get a clear card you can show on your phone or print for your wallet. No account. No upload. Works offline.</p>
+    <a class="btn" href="#make">Make my card</a>
+  </section>
+
+  <section id="make" class="wrap maker">
+    <div class="panel controls">
+      <h2>1. What can't you eat?</h2>
+      <div id="allergens" class="chips" role="group" aria-label="Allergens"></div>
+      <label class="field">Something else (optional)
+        <input id="other" type="text" maxlength="40" placeholder="e.g. kiwi">
+      </label>
+
+      <h2>2. How serious is it?</h2>
+      <div class="seg" role="radiogroup" aria-label="Severity">
+        <label><input type="radio" name="sev" value="severe" checked> Severe — even a trace</label>
+        <label><input type="radio" name="sev" value="avoid"> Avoid — small amounts may be OK</label>
+      </div>
+
+      <h2>3. Who will read it?</h2>
+      <select id="lang" aria-label="Card language">
+        <option value="ja">日本語 (Japanese)</option>
+        <option value="en">English</option>
+        <option value="zh">中文 (Chinese)</option>
+        <option value="ko">한국어 (Korean)</option>
+      </select>
+
+      <label class="field">Emergency contact (optional, stays on this device)
+        <input id="contact" type="text" maxlength="40" placeholder="Name / phone">
+      </label>
+      <label class="check"><input id="epi" type="checkbox"> I carry an adrenaline auto-injector</label>
+    </div>
+
+    <div class="preview">
+      <article id="card" class="card" aria-live="polite"></article>
+      <div class="actions">
+        <button class="btn" id="print">Print / save as PDF</button>
+        <button class="btn ghost" id="big">Show full screen</button>
+      </div>
+      <p class="hint">Your choices are saved only in this browser.</p>
+    </div>
+  </section>
+
+  <section id="kit" class="wrap">
+    <h2 class="sec">Emergency kit for people with food allergies</h2>
+    <p class="lead small">After an earthquake, shelters hand out what they have. For people with allergies, that is often bread, rice balls with unknown fillings, or instant noodles. Tick what you already keep at home.</p>
+    <ul id="kitlist" class="kit"></ul>
+    <p class="progress"><span id="kitcount">0</span> of <span id="kittotal">0</span> ready</p>
+  </section>
+
+  <section id="why" class="wrap why">
+    <h2 class="sec">Why I made this</h2>
+    <p>I have egg and wheat allergies. In everyday life I can read labels and ask questions. The hard moments are the ones where I can't: abroad, in a hurry, or in a disaster shelter where volunteers change every shift. A card that says the same thing every time, in the reader's own language, removes the guesswork for both sides.</p>
+  </section>
+</main>
+
+<div id="full" class="full" hidden><button id="close" class="btn ghost">Close</button><div id="fullcard" class="card big"></div></div>
+
+<footer class="wrap foot">
+  <p>AllerCard is not medical advice. Translations were written carefully but check them with someone you trust. MIT licensed · <a href="https://github.com/vpgkotaro-jpg/allercard">source</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
